@@ -1,4 +1,4 @@
-# Simple Data Binding Example for Beginner in Android
+# Data Binding for Beginner in Android
 ## Description
   - Data Binding is a powerful library in Android that allows you to bind UI components such as TextViews, EditTexts, and Buttons to data sources in your       app's architecture. It's a way to simplify your code and make it more readable by removing the need for manual view binding.
 
@@ -15,7 +15,11 @@
 <img width="150" alt="Screen Shot 2023-03-27 at 11 10 37 PM" src="https://user-images.githubusercontent.com/29136735/227999987-a7fb7fa3-b659-4052-aa88-da1f0c150b02.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 11 56 PM" src="https://user-images.githubusercontent.com/29136735/228000334-ff0dd3b9-2a32-4717-b2f5-159e7954ea13.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 13 17 PM" src="https://user-images.githubusercontent.com/29136735/228000671-a4d102fc-8c34-4b57-8b27-8b796b1f52f1.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 16 23 PM" src="https://user-images.githubusercontent.com/29136735/228001395-e23a7c06-fc0a-40ac-aacc-cf99c293decc.png">
 
 ## Usage
- ### View Binding
+ ### View Binding 
+ - With View Binding, you can easily access views in your layout files and manipulate them in your code, without having to use findViewById() or manually bind views to variables. This can greatly simplify your code and make it more readable and maintainable.
+
+ - View Binding is also type-safe, meaning that it can detect errors at compile time and provide you with better error messages, making it easier to debug your code.
+ 
  To enabled **View Binding** you have to add to ```app/build.gradle```
  ```
  android {
@@ -51,6 +55,30 @@
 </LinearLayout>
  ```
  The generated binding class is called ```ActivityViewBindingBinding```. This class has plenty fields: a TextView called ```tvResult```, two EditText called (```edtA```, ```edtB```) and a Button called ```btnSum```.
+ 
+*NOTE: In xml best practice is to use Snake Case on `view_id` and View Binding will form `view_id` to Camel Case*
 
  ### How can I use it in Activity?
+ To set up an instance of the binding class for use with an activity, perform the following steps in the activity's `onCreate()` method:
+ 1. Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the activity to use.
+ 2. Pass the root view to `setContentView()` to make it the active view on the screen.
+ 
+ These steps are shown in the following example:
+ ```
+ class ViewBindingActivity : AppCompatActivity() {
+ 
+  private lateinit var binding: ActivityViewBindingBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityViewBindingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ...
+    }
+    
+    ...
+ 
+ }
+ ```
+ *NOTE: Please check on `ViewBindActivity` for detail.*
  
