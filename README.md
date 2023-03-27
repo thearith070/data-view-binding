@@ -52,4 +52,5 @@
  ```
  The generated binding class is called ```ActivityViewBindingBinding```. This class has plenty fields: a TextView called ```tvResult```, two EditText called (```edtA```, ```edtB```) and a Button called ```btnSum```.
 
+ ### How can I use it in Activity?
  
