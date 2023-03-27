@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Data-Binding</string>
+    <string name="odd_text">Your input number is ODD: %d</string>
+    <string name="even_text">Your input number is EVEN: %d</string>
 </resources>
