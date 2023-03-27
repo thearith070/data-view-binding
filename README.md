@@ -16,11 +16,13 @@
 
 ## Usage
  ### View Binding 
- - With View Binding, you can easily access views in your layout files and manipulate them in your code, without having to use findViewById() or manually bind views to variables. This can greatly simplify your code and make it more readable and maintainable.
+  ### I. Briefly 
+  - With View Binding, you can easily access views in your layout files and manipulate them in your code, without having to use findViewById() or manually  bind views to variables. This can greatly simplify your code and make it more readable and maintainable.
 
- - View Binding is also type-safe, meaning that it can detect errors at compile time and provide you with better error messages, making it easier to debug your code.
+  - View Binding is also type-safe, meaning that it can detect errors at compile time and provide you with better error messages, making it easier to debug your code.
  
- To enabled **View Binding** you have to add to ```app/build.gradle```
+  ### II. Installation
+  To enabled **View Binding** you have to add to ```app/build.gradle```
  ```
  android {
   ...
@@ -58,10 +60,10 @@
  
 *NOTE: In xml best practice is to use Snake Case on `view_id` and View Binding will form `view_id` to Camel Case*
 
- ### How can I use it in Activity?
+ ### III. How can I use it in Activity?
  To set up an instance of the binding class for use with an activity, perform the following steps in the activity's `onCreate()` method:
- 1. Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the activity to use.
- 2. Pass the root view to `setContentView()` to make it the active view on the screen.
+ - Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the activity to use.
+ - Pass the root view to `setContentView()` to make it the active view on the screen.
  
  These steps are shown in the following example:
  ```
@@ -81,4 +83,8 @@
  }
  ```
  *NOTE: Please check on `ViewBindActivity` for detail.*
+ 
+ ### IV. Limitations compared to data binding
+  - View binding doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
+  - View binding doesn't support [two data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
