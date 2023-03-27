@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Input A"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
+            android:inputType="text"
             android:maxLines="1"
             android:text="@={valueA}" />
 
@@ -34,8 +35,9 @@
             android:id="@+id/edt_b"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:enabled="false"
             android:hint="Input B"
-            android:imeOptions="actionDone"
+            android:inputType="text"
             android:maxLines="1"
             android:text="@{valueB}" />
 
