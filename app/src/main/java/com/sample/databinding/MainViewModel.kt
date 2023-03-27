@@ -1,4 +1,4 @@
-package com.sample.twowaysdatabinding
+package com.sample.databinding
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
