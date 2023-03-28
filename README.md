@@ -1,15 +1,14 @@
-# Data Binding for Beginner in Android
+# Data/View Binding for Beginner in Android
+
 ## Description
-  - Data Binding is a powerful library in Android that allows you to bind UI components such as TextViews, EditTexts, and Buttons to data sources in your       app's architecture. It's a way to simplify your code and make it more readable by removing the need for manual view binding.
+  - View Binding is a lightweight library that generates a binding class at compile time, allowing you to easily access views in your app's layout files in a type-safe manner. It simplifies view access and eliminates the need for manual view binding, making your code more readable and maintainable.
 
-  - With Data Binding, you can use expressions to transform data before displaying it in your UI, and even implement two-way data binding to update your  data sources when the user interacts with the UI. It also makes it easier to handle events such as button clicks or text changes, by allowing you to bind those events to methods in your code.
-
-  - Data Binding works by generating binding classes at compile time, which allow you to access your UI components and data sources directly in your code. It's a powerful tool for Android developers that can greatly simplify the development process and make your code more maintainable.
+  - Data Binding, on the other hand, is a more powerful library that goes beyond view access and allows you to bind UI components directly to data sources in your app's architecture. It allows you to use expressions to transform data and even implement two-way data binding, where changes made to the UI are automatically reflected in the data source and vice versa.
 
 ## Table of Contents
   - [View Binding](https://developer.android.com/topic/libraries/view-binding)
   - [Data Binding](https://developer.android.com/topic/libraries/data-binding)
-  - [Two-Ways Data Binding](https://developer.android.com/topic/libraries/data-binding/two-way)
+  - [Two-Way Data Binding](https://developer.android.com/topic/libraries/data-binding/two-way)
 
 ## Screenshots
 <img width="150" alt="Screen Shot 2023-03-27 at 11 10 37 PM" src="https://user-images.githubusercontent.com/29136735/227999987-a7fb7fa3-b659-4052-aa88-da1f0c150b02.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 11 56 PM" src="https://user-images.githubusercontent.com/29136735/228000334-ff0dd3b9-2a32-4717-b2f5-159e7954ea13.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 13 17 PM" src="https://user-images.githubusercontent.com/29136735/228000671-a4d102fc-8c34-4b57-8b27-8b796b1f52f1.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 16 23 PM" src="https://user-images.githubusercontent.com/29136735/228001395-e23a7c06-fc0a-40ac-aacc-cf99c293decc.png">
@@ -17,13 +16,8 @@
 ## Usage
 
 ### View Binding 
-
-### I. Briefly 
-  - With View Binding, you can easily access views in your layout files and manipulate them in your code, without having to use findViewById() or manually  bind views to variables. This can greatly simplify your code and make it more readable and maintainable.
-
-  - View Binding is also type-safe, meaning that it can detect errors at compile time and provide you with better error messages, making it easier to debug your code.
  
- ### II. Installation
+ ### I. Installation
   To enabled **View Binding** you have to add this snippet to ```app/build.gradle``` and then click sync
  ```
  android {
@@ -62,7 +56,7 @@
  
 *NOTE: In xml best practice is to use Snake Case on `view_id` and View Binding will form `view_id` to Camel Case*
 
- ### III. I would like to ignore some my xml files to be generated
+ ### II. I would like to ignore some of my xml files to be generated
  If you want a layout file to be ignored while generating binding classes, add the `tools:viewBindingIgnore="true"` attribute to the root view of that layout file:
  ```
  <LinearLayout
@@ -72,7 +66,7 @@
 </LinearLayout>
  ```
 
- ### IV. How can I use it in Activity?
+ ### III. How can I use it in Activity?
  To set up an instance of the binding class for use with an activity, perform the following steps in the activity's `onCreate()` method:
  - Call the static `inflate()` method included in the generated binding class. This creates an instance of the binding class for the activity to use.
  - Pass the root view to `setContentView()` to make it the active view on the screen.
@@ -96,15 +90,29 @@
  ```
   *NOTE: Please check on `ViewBindActivity` for detail.*
   
-  ### V. Compared to `findViewById`
+  ### IV. Compared to `findViewById`
   - *Null safety*: since view binding creates direct references to views, there's no risk of a null pointer exception due to an invalid view ID. Additionally, when a view is only present in some configurations of a layout, the field containing its reference in the binding class is marked with `@Nullable`.
   - *Type safety*: the fields in each binding class have types matching the views they reference in the XML file. This means there's no risk of a class cast exception.
 
-  ### VI. Comparison with data binding
+  ### V. Comparison with data binding
   - *Faster compilation*: view binding requires no annotation processing, so compile times are faster.
   - *Ease of use*: view binding doesn't require specially tagged XML layout files, so it's faster to adopt in your apps. Once you enable view binding in a module, it applies to all of that module's layouts automatically.
  
   - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
-  - *View binding* doesn't support [two-ways data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
+  - *View binding* doesn't support [two-way data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
- 
+### Data Binding 
+
+  ### I. Installation 
+  To enabled **Data Binding** you have to add this snippet to ```app/build.gradle``` and then click sync
+ ```
+ android {
+  ...
+  buildFeatures {
+        ...
+        dataBinding true
+    }
+ }
+ ```
+  Very similar to `View Binding`!
+  
