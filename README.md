@@ -116,7 +116,7 @@
  ```
   After `Data Binding` is enabled for a module, a binding class is not generated for each XML layout file yet it is not same to `View Binding`.
   
-  ### II. How I have my generated binding class
+  ### II. How can I have my generated binding class
   First of all, you need to wrap your xml layout file in a `layout` tag: 
   `activity_data_binding.xml`
  ```
@@ -142,9 +142,44 @@
 
 </layout>
  ```
- After this you could see generated binding class named `ActivityDataBindingBinding`. *Generated Binding Class* is similary to `View Binding`.
+  After this you could see generated binding class named `ActivityDataBindingBinding`. *Generated Binding Class* is similary to `View Binding`.
  
- *NOTE: If you decided to use `Data Binding` you should not use `View Binding` anymore. Because `Data Binding` takes place of `View Binding` already.*
+  *NOTE: If you decided to use `Data Binding` you should not use `View Binding` anymore. Because `Data Binding` takes place of `View Binding` already.*
+ 
+  Here how it used in your Activities:
+```
+ class DataBindingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDataBindingBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
+        ...
+    }
+
+    ...
+
+}
+```
+ 
+ Or you can use same to `View Binding` case:
+```
+ class DataBindingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDataBindingBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityDataBindingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ...
+    }
+
+    ...
+
+}
+```
  
   
   
