@@ -9,7 +9,7 @@
 ## Table of Contents
   - [View Binding](https://developer.android.com/topic/libraries/view-binding)
   - [Data Binding](https://developer.android.com/topic/libraries/data-binding)
-  - [Two Data Binding](https://developer.android.com/topic/libraries/data-binding/two-way)
+  - [Two-Ways Data Binding](https://developer.android.com/topic/libraries/data-binding/two-way)
 
 ## Screenshots
 <img width="150" alt="Screen Shot 2023-03-27 at 11 10 37 PM" src="https://user-images.githubusercontent.com/29136735/227999987-a7fb7fa3-b659-4052-aa88-da1f0c150b02.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 11 56 PM" src="https://user-images.githubusercontent.com/29136735/228000334-ff0dd3b9-2a32-4717-b2f5-159e7954ea13.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 13 17 PM" src="https://user-images.githubusercontent.com/29136735/228000671-a4d102fc-8c34-4b57-8b27-8b796b1f52f1.png"> <img width="150" alt="Screen Shot 2023-03-27 at 11 16 23 PM" src="https://user-images.githubusercontent.com/29136735/228001395-e23a7c06-fc0a-40ac-aacc-cf99c293decc.png">
@@ -105,6 +105,6 @@
   - *Ease of use*: view binding doesn't require specially tagged XML layout files, so it's faster to adopt in your apps. Once you enable view binding in a module, it applies to all of that module's layouts automatically.
  
   - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
-  - *View binding* doesn't support [two data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
+  - *View binding* doesn't support [two-ways data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
  
