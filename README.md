@@ -97,10 +97,14 @@
   *NOTE: Please check on `ViewBindActivity` for detail.*
   
   ### V. Compared to `findViewById`
-    Null safety: since view binding creates direct references to views, there's no risk of a null pointer exception due to an invalid view ID. Additionally, when a view is only present in some configurations of a layout, the field containing its reference in the binding class is marked with `@Nullable`.
+  - *Null safety*: since view binding creates direct references to views, there's no risk of a null pointer exception due to an invalid view ID. Additionally, when a view is only present in some configurations of a layout, the field containing its reference in the binding class is marked with `@Nullable`.
+  - *Type safety*: the fields in each binding class have types matching the views they reference in the XML file. This means there's no risk of a class cast exception.
+
+  ### VI. Comparison with data binding
+  - *Faster compilation*: view binding requires no annotation processing, so compile times are faster.
+  - *Ease of use*: view binding doesn't require specially tagged XML layout files, so it's faster to adopt in your apps. Once you enable view binding in a module, it applies to all of that module's layouts automatically.
  
-  ### VI. Limitations compared to data binding
-  - View binding doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
-  - View binding doesn't support [two data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
+  - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
+  - *View binding* doesn't support [two data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
  
