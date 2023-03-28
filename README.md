@@ -114,5 +114,39 @@
     }
  }
  ```
-  Very similar to `View Binding`!
+  After `Data Binding` is enabled for a module, a binding class is not generated for each XML layout file yet it is not same to `View Binding`.
+  
+  ### II. How I have my generated binding class
+  First of all, you need to wrap your xml layout file in a `layout` tag: 
+  `activity_data_binding.xml`
+ ```
+ <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+  
+    <data>
+
+        ...
+
+    </data>
+
+    // Root layout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ...>
+
+        ...
+
+    </LinearLayout>
+
+</layout>
+ ```
+ After this you could see generated binding class named `ActivityDataBindingBinding`. *Generated Binding Class* is similary to `View Binding`.
+ 
+ *NOTE: If you decided to use `Data Binding` you should not use `View Binding` anymore. Because `Data Binding` takes place of `View Binding` already.*
+ 
+  
+  
+   
   
