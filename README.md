@@ -128,7 +128,7 @@
   - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
   - *View binding* doesn't support [two-way data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
-### Data Binding 
+ ### Data Binding 
 
   ### I. Installation 
   To enabled **Data Binding** you have to add this snippet to ```app/build.gradle``` and then click sync
@@ -157,7 +157,7 @@
 
     </data>
 
-    // Root layout
+    <!--Root Layout-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -214,7 +214,7 @@
   
   If you read `View Binding` content. You will see its limitation, let read [here](https://github.com/thearith070/databinding#v-limitation) if you have skipped it. 
   
-  Please, take a moment to consider if you could declare variable in xml and use it within xml directly and also put condition as well. That's called [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions). 
+  Please, take a moment to consider if you could declare variable in xml and use it within xml directly and can also put some condition as well. That's called [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions). 
   
   If you wish you to declare variable and use it. You need to declare that variable in `data` tag which `data` tag is in `layout` tag.
   There are two important sub-tags (`import`, `variable`) that can be used under the `data` tag.
@@ -259,6 +259,152 @@
  In this example you see we can use and even more has condition to visible `TextView` whenever user is ADMIN. And there are many more.
  
  THAT'S ALL FOR DATA BINDING! ☺️☺️
+ 
+ ### Two-way Data Binding
+ In Android, two-way data binding is achieved using the Data Binding Library. This library allows you to bind UI elements to data model properties using an XML syntax. When a UI element is bound to a data model property, any changes made to the UI element are automatically propagated to the data model, and any changes made to the data model are automatically reflected in the UI element. 
+ 
+ In short `Two-way` is the part of `Data Binding` therefore the steps are completely the same. Now let see the example then you will see how `the model` and `the UI` changes made in either direction to be feflected in the other.
+  
+  Let say we have a model `User` which has `name` & `email` as properties and two `EditText`s for update those properties whenever somethings change on both side. 
+  
+  MODEL `User`
+  ```
+  data class User(
+    var name: String,
+    var email: String
+  )
+  ```
+  
+  UI `xml`
+  ```
+  <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        ...
+
+    </data>
+
+    <LinearLayout
+        ...>
+
+        <EditText
+            android:id="@+id/edt_name"
+            ... />
+
+        <EditText
+            android:id="@+id/edt_email"
+            ... />
+
+        <Button
+            android:id="@+id/btn_print"
+            ... />
+
+    </LinearLayout>
+
+</layout>
+  ```
+  
+  So if you don't have `Two-way Data Binding` you might do the following steps:
+   - Init a user object: `private val user = User("Thearith", "thearith@gmail.com")`
+   - Set listener to both `EditText`s to listen whener USER type something and then update that `user object` by `user.name = 'some name'` & `user.email = some email`.
+   - Or another ways
+    
+  But with `Two-way Data Binding` you replace these steps by putting `@={user.name}` and `@={user.email}`. That's all!
+  
+  Let see the sample:
+  In XML
+  
+  ```
+  <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.sample.databinding.User"/>
+
+        <variable
+            name="user"
+            type="User" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".TwoWaysDataBindingActivity">
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input name"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+            android:text="@={user.name}" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:text="@={user.email}" />
+
+        <Button
+            android:id="@+id/btn_print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Print" />
+
+    </LinearLayout>
+
+</layout>
+  ```
+  
+  In Activity
+  ```
+  class TwoWaysDataBindingActivity : AppCompatActivity() {
+
+    private lateinit var binding: Activity2waysDataBindingBinding
+    private val user = User("Thearith", "thearith@gmail.com")
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_2ways_data_binding)
+        binding.user = user
+        setupListener()
+    }
+
+    private fun setupListener() {
+        binding.btnPrint.setOnClickListener {
+            println(user)
+        }
+    }
+}
+  ```
+  
+  You can see nothing do on Activity, so please clone this project and click on `2Ways Data Binding` Button and explore more by YOURSELF!.
+  
+  Remember: `Data Binding`: `@{}` and `Two-way Data Binding`: `@={}`.  Have fun ☺️😊
+  
+  
+  =========================================THANK YOU==============================
+  
+ 
+  
+ 
+ 
+ 
+ 
   
   
  
