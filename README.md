@@ -120,14 +120,11 @@
  
   *NOTE: Please check on `ViewBindActivity` for detail.*
   
-  ### IV. Compared to `findViewById`
+  ### IV. Comparison to `findViewById`
   - *Null safety*: since view binding creates direct references to views, there's no risk of a null pointer exception due to an invalid view ID. Additionally, when a view is only present in some configurations of a layout, the field containing its reference in the binding class is marked with `@Nullable`.
   - *Type safety*: the fields in each binding class have types matching the views they reference in the XML file. This means there's no risk of a class cast exception.
 
-  ### V. Comparison with data binding
-  - *Faster compilation*: view binding requires no annotation processing, so compile times are faster.
-  - *Ease of use*: view binding doesn't require specially tagged XML layout files, so it's faster to adopt in your apps. Once you enable view binding in a module, it applies to all of that module's layouts automatically.
- 
+  ### Limitation
   - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
   - *View binding* doesn't support [two-way data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
@@ -211,6 +208,11 @@
 }
 ```
   Accessing views in xml on Activities or Fragments way the same to `View Binding` step.
+  
+  ### III. Why should I use `Data Binding` over `View Binding` if they're almost the same.
+  Yeah!! good question.
+  
+  If you read `View Binding` content. You will see its limitation let read [here](https://github.com/thearith070/databinding#v-comparison-with-data-binding)
  
   
   
