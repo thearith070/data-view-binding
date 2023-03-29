@@ -212,7 +212,7 @@
   ### III. Why should I use `Data Binding` over `View Binding` if they're almost the same.
   Yeah!! good question.
   
-  If you read `View Binding` content. You will see its limitation let read [here](https://github.com/thearith070/databinding#v-comparison-with-data-binding)
+  If you read `View Binding` content. You will see its limitation let read [here]([https://github.com/thearith070/databinding#v-comparison-with-data-binding](https://github.com/thearith070/databinding#v-limitation))
  
   
   
