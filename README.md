@@ -124,7 +124,7 @@
   - *Null safety*: since view binding creates direct references to views, there's no risk of a null pointer exception due to an invalid view ID. Additionally, when a view is only present in some configurations of a layout, the field containing its reference in the binding class is marked with `@Nullable`.
   - *Type safety*: the fields in each binding class have types matching the views they reference in the XML file. This means there's no risk of a class cast exception.
 
-  ### Limitation
+  ### V. Limitation
   - *View binding* doesn't support [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions), so it can't be used to declare dynamic UI content straight from XML layout files.
   - *View binding* doesn't support [two-way data binding](https://developer.android.com/topic/libraries/data-binding/two-way).
  
