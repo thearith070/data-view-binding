@@ -89,7 +89,7 @@
  }
  ```
  
- After you've followed the steps, here how you access views from xml in Activities
+ #### After you've followed the steps, here how you access views from xml in Activities
  ```
  class ViewBindingActivity : AppCompatActivity() {
 
@@ -207,12 +207,60 @@
 
 }
 ```
-  Accessing views in xml on Activities or Fragments way the same to `View Binding` step.
+  Accessing views in xml on Activities or Fragments way the same to `View Binding`, let read [here](https://github.com/thearith070/databinding/edit/master/README.md#after-youve-followed-the-steps-here-how-you-access-views-from-xml-in-activities) if you have skipped it.
   
   ### III. Why should I use `Data Binding` over `View Binding` if they're almost the same.
-  Yeah!! good question.
+  Yeah, that's good question!
   
-  If you read `View Binding` content. You will see its limitation let read [here](https://github.com/thearith070/databinding#v-limitation)
+  If you read `View Binding` content. You will see its limitation, let read [here](https://github.com/thearith070/databinding#v-limitation) if you have skipped it. 
+  
+  Please, take a moment to consider if you could declare variable in xml and use it within xml directly and also put condition as well. That's called [layout variables or layout expressions](https://developer.android.com/topic/libraries/data-binding/expressions). 
+  
+  If you wish you to declare variable and use it. You need to declare that variable in `data` tag which `data` tag is in `layout` tag.
+  There are two important sub-tags (`import`, `variable`) that can be used under the `data` tag.
+  
+  - `import` is used to import classes that will be used in the layout file. For example:
+ 
+    ```
+      <data>
+        <import type="com.example.myapp.model.User" />
+        <variable name="user" type="User" />
+      </data>
+    ```
+    Here, the `import` tag is used to `import` the User class from the `com.example.myapp.model` package. 
+    
+   - `variable` tag is used to define a variable that will be used in the layout file. It has the following attributes:
+   
+        - `name` The name of the variable.
+        
+        - `type` The type of the variable.
+        
+        - `value` The initial value of the variable.
+        
+     For example:
+     ```
+       <data>
+          <import type="com.example.myapp.model.User" />
+          
+          <variable name="user" type="User" />
+          <variable name="userName" type="String" />
+          <variable name="userAge" type="int" />
+       </data>
+     ```
+     Here, the `data` tag defines two variables, `userName` of type `String` and `userAge` of type `int`. These variables can be used in the layout file to display data.
+     
+ ### IV. How to use variables in xml?
+ To use the imported class or variable in the layout, you can reference them using the `@{}` syntax. For example:
+ ```
+ <TextView
+    android:text="@{user.name}"
+    android:visibility="@{user.isAdmin ? View.VISIBLE : View.GONE}"/>
+ ```
+ In this example you see we can use and even more has condition to visible `TextView` whenever user is ADMIN. And there are many more.
+ 
+ THAT'S ALL FOR DATA BINDING! ☺️☺️
+  
+  
  
   
   
