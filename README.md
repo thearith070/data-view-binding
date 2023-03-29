@@ -88,6 +88,36 @@
  
  }
  ```
+ 
+ After you've followed the steps, here how you access views from xml in Activities
+ ```
+ class ViewBindingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityViewBindingBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityViewBindingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupListener()
+    }
+
+    private fun setupListener() {
+        binding.btnSum.setOnClickListener {
+            val a = binding.edtA.text.toString()
+            val b = binding.edtB.text.toString()
+            ...
+        }
+    }
+    ...
+}
+ ```
+ `binding` is represent your xml file, therefore every views which exist in xml will be visible by typing `binding.` it suppose to show the dropdown of views: 
+ 
+ <img width="567" alt="Screen Shot 2023-03-29 at 11 19 11 AM" src="https://user-images.githubusercontent.com/29136735/228425776-39be68a7-c838-4494-a9df-e596dd4d676c.png">
+
+ but don't forget to set `id` to views that you necessary to use in Activities or Fragments.
+ 
   *NOTE: Please check on `ViewBindActivity` for detail.*
   
   ### IV. Compared to `findViewById`
@@ -180,6 +210,7 @@
 
 }
 ```
+  Accessing views in xml on Activities or Fragments way the same to `View Binding` step.
  
   
   
