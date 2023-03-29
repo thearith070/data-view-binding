@@ -4,13 +4,12 @@
 
     <data>
 
-        <variable
-            name="valueA"
-            type="String" />
+        <import type="com.sample.databinding.User"/>
 
         <variable
-            name="valueB"
-            type="String" />
+            name="user"
+            type="User" />
+
     </data>
 
     <LinearLayout
@@ -22,30 +21,29 @@
         tools:context=".TwoWaysDataBindingActivity">
 
         <EditText
-            android:id="@+id/edt_a"
+            android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Input A"
+            android:hint="Input name"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-            android:text="@={valueA}" />
+            android:text="@={user.name}" />
 
         <EditText
-            android:id="@+id/edt_b"
+            android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="Input B"
-            android:inputType="text"
+            android:hint="Input email"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:text="@{valueB}" />
+            android:text="@={user.email}" />
 
         <Button
-            android:id="@+id/btn_copy"
+            android:id="@+id/btn_print"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Copy A to B" />
+            android:text="Print" />
 
     </LinearLayout>
 
